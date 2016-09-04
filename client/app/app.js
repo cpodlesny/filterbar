@@ -9,33 +9,45 @@ import ngMaterial from 'angular-material';
 import 'angular-material/angular-material.css';
 
 angular.module('app', [
-  ngAria,
-  ngAnimate,
-  ngMaterial,
-  uiRouter,
-  Common,
-  Components
-  ])
+    ngAria,
+    ngAnimate,
+    ngMaterial,
+    uiRouter,
+    Common,
+    Components
+])
 
-  .config(
-      (
-          $locationProvider,
-          $mdIconProvider,
-          $mdThemingProvider
-      ) => {
-    'ngInject';
+    .config(
+        (
+            $locationProvider,
+            $mdIconProvider,
+            $mdThemingProvider
+        ) => {
+            'ngInject';
 
-        $mdThemingProvider.theme('default')
-            .primaryPalette('grey')
-            .accentPalette('blue-grey');
+            $mdThemingProvider.theme('default')
+                .primaryPalette('grey')
+                .accentPalette('blue-grey');
 
-        $locationProvider.html5Mode(true).hashPrefix('!');
+            $mdThemingProvider.theme('altTheme')
+                .primaryPalette('green');
 
-        $mdIconProvider
-            .icon('close', 'assets/img/ic_close_black_24px.svg', 24)
-            .icon('menu', 'assets/img/ic_menu_black_24px.svg', 24);
+            $mdThemingProvider.theme('checkBox')
+                .primaryPalette('blue')
+                .accentPalette('blue');
 
-  })
+            $locationProvider.html5Mode(true).hashPrefix('!');
 
-  .component('app', AppComponent);
+            $mdIconProvider
+                .icon('close', 'assets/img/ic_close_black_24px.svg', 24)
+                .icon('menu', 'assets/img/ic_menu_black_24px.svg', 24)
+                .icon('arrow drop down', 'assets/img/ic_arrow_drop_down_black_24px.svg', 24)
+                .icon('filter_list', 'assets/img/ic_filter_list_black_24px.svg', 24)
+                .icon('access_time', 'assets/img/ic_access_time_black_24px.svg', 24)
+
+        })
+
+    .component('app', AppComponent);
+
+
 

@@ -1,37 +1,62 @@
-<div layout="left center">
+<div layout="left center" class="filter-container">
+  <md-button ng-disabled="true" aria-label="accessibility">
+    <md-icon md-svg-icon="filter_list"></md-icon>
+    <!--Filter by:-->
+  </md-button>
+  <md-button>
+    Booking ID
+  </md-button>
   <md-button class="status"
              ng-click="$ctrl.showMenu($event, 'status')">
     Status
+    <md-icon md-svg-icon="arrow drop down"></md-icon>
   </md-button>
   <md-button class="customer-and-passenger"
              ng-click="$ctrl.showMenu($event, 'customer-and-passenger')">
     Customer/Passenger
+    <md-icon md-svg-icon="arrow drop down"></md-icon>
   </md-button>
   <md-button class="driver-and-car"
              ng-click="$ctrl.showMenu($event, 'driver-and-car')">
     Driver/Car
+    <md-icon md-svg-icon="arrow drop down"></md-icon>
   </md-button>
   <md-button class="date-and-time"
              ng-click="$ctrl.showMenu($event, 'date-and-time')">
     Date/Time
+    <md-icon md-svg-icon="arrow drop down"></md-icon>
   </md-button>
   <md-button class="areas"
              ng-click="$ctrl.showMenu($event, 'areas')">
     Areas
+    <md-icon md-svg-icon="arrow drop down"></md-icon>
   </md-button>
   <md-button class="comments-and-reference"
              ng-click="$ctrl.showMenu($event, 'comments-and-reference')">
     Comments/Reference
+    <md-icon md-svg-icon="arrow drop down"></md-icon>
   </md-button>
-  <md-button class="md-primary md-raised comments-and-reference"
-             ng-click="void(0)">
+  <md-button md-theme="altTheme" class="md-primary md-raised comments-and-reference"
+             ng-click="$ctrl.filtering()">
     Filter
   </md-button>
-  <md-button class="md-accent md-raised comments-and-reference"
+  <md-button style="color: #ffffff" class="md-primary md-raised comments-and-reference"
              ng-click="$ctrl.refreshFilter()">
     Reset
   </md-button>
+
+
 </div>
+<div>
+  <md-chips ng-model="$ctrl.options.chips">
+    <md-chip-template>
+      <strong>{{ $chip.name }}</strong>
+    </md-chip-template>
+  </md-chips>
+</div>
+
+
+
 
 
 

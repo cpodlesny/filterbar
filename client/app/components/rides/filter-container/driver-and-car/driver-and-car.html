@@ -9,8 +9,10 @@
     </md-list-item>
     <md-subheader class="md-no-sticky">Choose a car class</md-subheader>
     <md-list-item layout="center center" ng-repeat="carClass in $ctrl.options.carClasses track by $index">
-      <md-checkbox class="md-primary" ng-model="carClass.selected"></md-checkbox>
+      <md-checkbox md-theme="checkBox" class="md-primary" ng-model="carClass.selected"></md-checkbox>
       <p class="md-subheader" ng-bind="carClass.name"></p>
     </md-list-item>
   </md-list>
 </md-content>
+
+

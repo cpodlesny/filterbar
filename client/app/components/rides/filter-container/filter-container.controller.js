@@ -15,6 +15,7 @@ class FilterContainerController {
   
   $onInit () {
     this.options = {
+      chips: [],
       reservationStates: [
         {
           name: 'Accepted',
@@ -128,6 +129,15 @@ class FilterContainerController {
             .position('top right')
             .hideDelay(3000)
     );
+  };
+
+  filtering () {
+    this._$mdToast.show(
+        this._$mdToast.simple()
+            .textContent('Filtering')
+            .position('top right')
+            .hideDelay(3000)
+    );
   }
 
   getAll (param) {
@@ -146,23 +156,23 @@ class FilterContainerController {
         .relativeTo(`.${component}`)
         .addPanelPosition(this._$mdPanel.xPosition.ALIGN_START, this._$mdPanel.yPosition.BELOW);
     let config = {
-      template: `<${component} options="options"></${component}>`,
-      panelClass: 'demo-menu-example',
       locals: {
         'options': this.options,
       },
       controller: ['$scope', 'options', ($scope, options) => {
         $scope.options = options;
       }],
-      position: position,
-      openFrom: event,
+      template:            `<${component} options="options"></${component}>`,
+      position:            position,
+      openFrom:            event,
       clickOutsideToClose: true,
-      escapeToClose: true,
-      focusOnOpen: false,
-      zIndex: 2
+      escapeToClose:       true,
+      focusOnOpen:         false,
+
     };
     this._$mdPanel.open(config);
   };
 }
 
 export default FilterContainerController;
+

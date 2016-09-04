@@ -1,6 +1,6 @@
 class CommentsAndReferenceController {
   constructor() {
-    this.name = 'commentsAndReference';
+    this._name = 'commentsAndReference';
   }
 }
 
