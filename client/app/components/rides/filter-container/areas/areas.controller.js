@@ -7,7 +7,7 @@ class AreasController {
     if(param.selected) {
       this.options.chips.push( { name: param.name} );
     } else {
-      this.options.chips.slice(index, 1);
+      this.options.chips.splice(index, 1);
     }
   }
 }
