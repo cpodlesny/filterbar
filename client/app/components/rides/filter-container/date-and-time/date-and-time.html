@@ -1,0 +1,18 @@
+<md-content ng-cloak>
+  <md-list>
+    <md-subheader class="md-no-sticky">Search reservation starting from/to</md-subheader>
+    <md-list-item>
+      <md-datepicker ng-model="$ctrl.options.reservationStartingFrom" md-placeholder="From"></md-datepicker>
+      <md-datepicker ng-model="$ctrl.options.reservationStartingTo" md-placeholder="To"></md-datepicker>
+      <md-checkbox ng-model="$ctrl.options.reservationStartingFrom.localTime"></md-checkbox>
+      <p class="md-subheader">local time</p>
+    </md-list-item>
+    <md-subheader class="md-no-sticky">Search reservation created from/to</md-subheader>
+    <md-list-item>
+      <md-datepicker ng-model="$ctrl.options.reservationCreatedFrom" md-placeholder="From"></md-datepicker>
+      <md-datepicker ng-model="$ctrl.options.reservationCreatedTo" md-placeholder="To"></md-datepicker>
+      <md-checkbox ng-model="$ctrl.options.reservationCreatedFrom.localTime"></md-checkbox>
+      <p class="md-subheader">local time</p>
+    </md-list-item>
+  </md-list>
+</md-content>

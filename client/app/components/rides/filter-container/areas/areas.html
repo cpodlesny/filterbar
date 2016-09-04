@@ -1,0 +1,32 @@
+<md-content ng-cloak>
+  <md-list>
+    <md-subheader class="md-no-sticky">Choose an area</md-subheader>
+    <md-list-item>
+      <md-chips ng-model="ctrl.selectedVegetables" md-autocomplete-snap
+                md-transform-chip="ctrl.transformChip($chip)"
+                md-require-match="ctrl.autocompleteDemoRequireMatch">
+        <md-autocomplete
+                md-selected-item="ctrl.selectedItem"
+                md-search-text="ctrl.searchText"
+                md-items="item in ctrl.querySearch(ctrl.searchText)"
+                md-item-text="item.name"
+                placeholder="Type area name">
+          <span md-highlight-text="ctrl.searchText">{{item.name}} :: {{item.type}}</span>
+        </md-autocomplete>
+        <md-chip-template>
+        <span>
+          <strong ng-bind="$chip.name"></strong>
+          <em ng-bind="$chip.type"></em>
+        </span>
+        </md-chip-template>
+      </md-chips>
+    </md-list-item>
+    <div style="height: 10px"></div>
+    <md-subheader class="md-no-sticky">Choose country</md-subheader>
+    <md-list-item layout="center center" ng-repeat="country in $ctrl.options.countries track by $index">
+      <md-checkbox class="md-primary" ng-model="country.$index"></md-checkbox>
+      <p class="md-subheader" ng-bind="country.name"></p>
+    </md-list-item>
+  </md-list>
+</md-content>
+

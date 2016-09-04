@@ -1,0 +1,16 @@
+<md-content ng-cloak layout="row">
+  <md-list flex>
+    <md-subheader class="md-no-sticky">Reservation state</md-subheader>
+    <md-list-item layout="center center" ng-repeat="reservationState in $ctrl.options.reservationStates track by $index">
+      <md-checkbox class="md-primary" ng-model="reservationState.selected"></md-checkbox>
+      <p class="md-subheader" ng-bind="reservationState.name"></p>
+    </md-list-item>
+  </md-list>
+  <md-list flex>
+    <md-subheader class="md-no-sticky">Payment state</md-subheader>
+    <md-list-item layout="center center" ng-repeat="paymentState in $ctrl.options.paymentStates track by $index">
+      <md-checkbox class="md-primary" ng-model="paymentState.selected"></md-checkbox>
+      <p class="md-subheader" ng-bind="paymentState.name"></p>
+    </md-list-item>
+  </md-list>
+</md-content>
