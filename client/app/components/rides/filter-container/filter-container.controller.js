@@ -1,15 +1,19 @@
+import _ from 'lodash';
+
 class FilterContainerController {
   /*@ngInject*/
   constructor(
     $log,
     $http,
     $mdPanel,
-    $mdToast
+    $mdToast,
+    $mdDialog
   ) {
     this._$log = $log;
     this._$http = $http;
     this._$mdPanel = $mdPanel;
     this._$mdToast = $mdToast;
+    this._$mdDialog = $mdDialog;
     this._name = 'FilterContainerController';
   }
   
@@ -42,7 +46,7 @@ class FilterContainerController {
           selected: false
         },
       ],
-      paymentStates: [
+      paymentStates:  [
         {
           name: 'Pending',
           selected: false
@@ -87,11 +91,33 @@ class FilterContainerController {
         },
       ],
       areas:          [
-        { name: 'Austria' },
-        { name: 'Belgium' },
-        { name: 'Denmark' },
+        {
+          name: 'Austria',
+          selected: false
+        },
+        {
+          name: 'Belgium',
+          selected: false
+        },
+        {
+          name: 'Denmark',
+          selected: false
+        },
       ],
-      drivers:        [],
+      drivers:        [
+        {
+          name: 'John Connor',
+          selected: false
+        },
+        {
+          name: 'Jason Born',
+          selected: false
+        },
+        {
+          name: 'Chuck Norris',
+          selected: false
+        },
+      ],
       carClasses:     [
         {
           name: 'Economy',
@@ -110,8 +136,34 @@ class FilterContainerController {
           selected: false
         },
       ],
-      customers:      [],
-      passengers:     [],
+      customers:      [
+        {
+          name: 'Barack Obama',
+          selected: false
+        },
+        {
+          name: 'Bruce Wayne',
+          selected: false
+        },
+        {
+          name: 'Harvey Dent',
+          selected: false
+        },
+      ],
+      passengers:     [
+        {
+          name: 'Alfred Pennyworth',
+          selected: false
+        },
+        {
+          name: 'Joker',
+          selected: false
+        },
+        {
+          name: 'Alicia Hunt',
+          selected: false
+        },
+      ],
       companies:      [],
       referenceCodes: [],
       commentKeyword: []
@@ -132,12 +184,24 @@ class FilterContainerController {
   };
 
   filtering () {
+
+    let filteredOptions = [];
+
+    _.map(this.options, arr => {
+      _.map(arr, item => {
+        if(item.selected) {
+          filteredOptions.push(item);
+        }
+      })
+    });
+
     this._$mdToast.show(
         this._$mdToast.simple()
             .textContent('Filtering')
             .position('top right')
             .hideDelay(3000)
     );
+    this._$log.debug(filteredOptions);
   }
 
   getAll (param) {

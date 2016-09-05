@@ -1,4 +1,4 @@
-<md-content ng-cloak>
+<md-content class="md-whiteframe-4dp" ng-cloak>
   <md-list>
     <md-subheader class="md-no-sticky">Choose an area</md-subheader>
     <md-list-item>
@@ -23,9 +23,14 @@
     </md-list-item>
     <div style="height: 10px"></div>
     <md-subheader class="md-no-sticky">Choose country</md-subheader>
-    <md-list-item layout="center center" ng-repeat="country in $ctrl.options.countries track by $index">
-      <md-checkbox md-theme="checkBox" class="md-primary" ng-change="$ctrl.addChips(country, $index)" ng-model="country.selected"></md-checkbox>
-      <p class="md-subheader" ng-bind="country.name"></p>
+    <md-list-item layout="center center" ng-repeat="country in ::$ctrl.options.countries track by $index">
+      <md-checkbox md-theme="checkBox"
+                   class="md-primary"
+                   ng-change="$ctrl.addChips(country, $index)"
+                   ng-model="country.selected">
+
+      </md-checkbox>
+      <p class="md-subheader" ng-bind="::country.name"></p>
     </md-list-item>
   </md-list>
 </md-content>

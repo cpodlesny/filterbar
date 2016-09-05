@@ -1,16 +1,35 @@
 <md-content ng-cloak>
   <md-list>
-    <md-subheader class="md-no-sticky">Driver</md-subheader>
+    <md-subheader>Driver</md-subheader>
     <md-list-item>
-      <md-input-container>
-        <label>Enter a driver name</label>
-        <input ng-model="user.title">
-      </md-input-container>
+      <md-autocomplete
+              md-selected-item="$ctrl.selectedItem"
+              md-search-text-change="$ctrl.searchTextChange($ctrl.searchText)"
+              md-search-text="$ctrl.searchText"
+              md-selected-item-change="$ctrl.addChips(item, $index, true)"
+              md-items="item in ::$ctrl.querySearch($ctrl.searchText)"
+              md-item-text="item.name"
+              md-min-length="1"
+              placeholder="Enter a driver name">
+        <md-item-template>
+          <span md-highlight-text="$ctrl.searchText" md-highlight-flags="^i">{{item.name}}</span>
+        </md-item-template>
+        <md-not-found>
+            No matching for "{{$ctrl.searchText}}".
+        </md-not-found>
+      </md-autocomplete>
     </md-list-item>
-    <md-subheader class="md-no-sticky">Choose a car class</md-subheader>
-    <md-list-item layout="center center" ng-repeat="carClass in $ctrl.options.carClasses track by $index">
-      <md-checkbox md-theme="checkBox" class="md-primary" ng-model="carClass.selected"></md-checkbox>
-      <p class="md-subheader" ng-bind="carClass.name"></p>
+    <md-subheader>Choose a car class</md-subheader>
+    <md-list-item layout="center center"
+                  ng-repeat="carClass in ::$ctrl.options.carClasses track by $index">
+      <md-checkbox md-theme="checkBox"
+                   class="md-primary"
+                   ng-change="$ctrl.addChips(carClass, $index)"
+                   ng-model="carClass.selected">
+
+      </md-checkbox>
+      <p class="md-subheader"
+         ng-bind="::carClass.name"></p>
     </md-list-item>
   </md-list>
 </md-content>

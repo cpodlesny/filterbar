@@ -1,25 +1,60 @@
 <md-content ng-cloak>
   <md-list>
-    <md-subheader class="md-no-sticky">Choose a customer</md-subheader>
+    <md-subheader>Choose a customer</md-subheader>
     <md-list-item>
-      <md-input-container>
-        <label>Enter a customer name</label>
-        <input ng-model="user.title">
-      </md-input-container>
+      <md-autocomplete
+              md-selected-item="$ctrl.selectedItem"
+              md-search-text-change="$ctrl.searchTextChange($ctrl.searchText)"
+              md-search-text="$ctrl.searchText"
+              md-selected-item-change="$ctrl.addChips(item, $index, true)"
+              md-items="item in ::$ctrl.querySearch($ctrl.searchText, 'customers')"
+              md-item-text="item.name"
+              md-min-length="1"
+              placeholder="Enter a customer name">
+        <md-item-template>
+          <span md-highlight-text="$ctrl.searchText" md-highlight-flags="^i">{{item.name}}</span>
+        </md-item-template>
+        <md-not-found>
+          No matching for "{{$ctrl.searchText}}".
+        </md-not-found>
+      </md-autocomplete>
     </md-list-item>
-    <md-subheader class="md-no-sticky">Choose a passenger</md-subheader>
+    <md-subheader>Choose a passenger</md-subheader>
     <md-list-item>
-      <md-input-container>
-        <label>Enter a passenger name</label>
-        <input ng-model="user.title">
-      </md-input-container>
+      <md-autocomplete
+              md-selected-item="$ctrl.selectedItem"
+              md-search-text-change="$ctrl.searchTextChange($ctrl.searchText)"
+              md-search-text="$ctrl.searchText"
+              md-selected-item-change="$ctrl.addChips(item, $index, true)"
+              md-items="passengers in ::$ctrl.querySearch($ctrl.searchText, 'passengers')"
+              md-item-text="passengers.name"
+              md-min-length="1"
+              placeholder="Enter a passenger name">
+        <md-item-template>
+          <span md-highlight-text="$ctrl.searchText" md-highlight-flags="^i">{{passengers.name}}</span>
+        </md-item-template>
+        <md-not-found>
+          No matching for "{{$ctrl.searchText}}".
+        </md-not-found>
+      </md-autocomplete>
     </md-list-item>
-    <md-subheader class="md-no-sticky">Choose a Company</md-subheader>
+    <md-subheader>Choose a Company</md-subheader>
     <md-list-item>
-      <md-input-container>
-        <label>Enter a company name</label>
-        <input ng-model="user.title">
-      </md-input-container>
+      <md-autocomplete
+              md-selected-item="$ctrl.selectedItem"
+              md-search-text-change="$ctrl.searchTextChange($ctrl.searchText)"
+              md-search-text="$ctrl.searchText"
+              md-selected-item-change="$ctrl.addChips(item, $index, true)"
+              md-items="item in ::$ctrl.querySearch($ctrl.searchText, 'companies')"
+              md-item-text="item.name"
+              md-min-length="1"
+              placeholder="Enter a company name">
+        <md-item-template>
+          <span md-highlight-text="$ctrl.searchText" md-highlight-flags="^i">{{item.name}}</span>
+        </md-item-template>
+        <md-not-found>
+          No matching for "{{$ctrl.searchText}}".
+        </md-not-found>
+      </md-autocomplete>
     </md-list-item>
-  </md-list>
 </md-content>

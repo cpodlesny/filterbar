@@ -4,7 +4,9 @@ import './customer-and-passenger.styl';
 
 let customerAndPassengerComponent = {
   restrict: 'E',
-  bindings: {},
+  bindings: {
+    options: '<'
+  },
   template,
   controller
 };
